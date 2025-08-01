@@ -1,0 +1,23 @@
+{
+  "name": "Janitorial Appointment Services - Professional Cleaning Lead Generation",
+  "short_name": "Janitorial Leads",
+  "description": "Professional janitorial lead generation and appointment booking services. Get high-quality commercial cleaning leads that convert. Visit janitorialappointment.com for the best janitorial leads.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#5538F4",
+  "icons": [
+    {
+      "src": "/assets/Janitorial.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/Janitorial.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "categories": ["business", "cleaning", "services"],
+  "lang": "en-US"
+} 

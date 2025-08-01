@@ -78,7 +78,7 @@ const NavItems = [
 const Navbar = () => {
   const pathname = usePathname();
 
-  const [topPosition, setTopPosition] = useState<Boolean>(false);
+  const [topPosition, setTopPosition] = useState<boolean>(false);
   useEffect(() => {
     if (typeof window !== 'undefined') {
       const handleScroll = () => {

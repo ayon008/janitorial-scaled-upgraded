@@ -3,20 +3,14 @@ import { Swiper, SwiperClass, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation, Pagination, EffectFade } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
-// import 'swiper/css/effect-fade';
 import Image from "next/image";
 import image1 from "@/../public/assets/slide01.jpg";
 import image2 from "@/../public/assets/slide02.jpg";
 import image3 from "@/../public/assets/slide03.jpg";
 import { useRef, useState } from "react";
-import dynamic from "next/dynamic";
-const UpAnimation = dynamic(() => import("../Animations/UpAnimation"), {
-  ssr: false, // optional: disable server-side rendering if animation relies on `window` or browser APIs
-  loading: () => <></>, // optional: fallback while loading
-});
-// import ButtonTertiary from "../../Shared/Buttons/ButtonTertiary";
 import Link from "next/link";
 import ButtonSecondary from "../Buttons/SecondaryButton";
+import UpAnimation from "../Animations/UpAnimation";
 
 const Banner = () => {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -28,7 +22,7 @@ const Banner = () => {
     positionClasses = "absolute md:left-0 md:-translate-x-0 -translate-x-1/2 left-1/2 top-1/2 -translate-y-1/2 w-full 2xl:p-0 xl:p-0 md:pl-16 p-4 z-[60]",
     headingClasses = "text-white 2xl:text-5xl xl:text-5xl text-3xl font-semibold md:text-left text-center",
     paragraphClasses = "text-white 2xl:text-lg xl:text-lg text-base md:text-left text-center",
-  }) => {
+  }: { heading: React.ReactNode, paragraph: React.ReactNode, buttonLabel: string, positionClasses?: string, headingClasses?: string, paragraphClasses?: string }) => {
     return (
       <div className={positionClasses}>
         <div className="2xl:space-y-8 xl:space-y-8 space-y-6 max-w-[1150px] mx-auto">
@@ -169,7 +163,7 @@ const Banner = () => {
             >
               <button
                 onClick={() => handleSlideChange(index)}
-                aria-label={index}
+                aria-label={index.toString()}
                 className={`2xl:w-4 2xl:h-4 xl:w-4 xl:h-4 w-2 h-2 rounded-full transition-all cursor-pointer absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 ${activeIndex === index ? "bg-red-700" : "bg-white"
                   }`}
               />

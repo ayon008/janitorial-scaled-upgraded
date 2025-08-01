@@ -35,9 +35,9 @@ const Appointment = () => {
     try {
       // Simulate an API request with a delay
       if (typeof window !== "undefined") {
-        const email = localStorage.setItem("email", data.email);
-        const name = localStorage.setItem("name", data.name);
-        const it = localStorage.setItem("it", data.service);
+        localStorage.setItem("email", data.email);
+        localStorage.setItem("name", data.name);
+        localStorage.setItem("it", data.service);
         setTimeout(() => {
           Swal.close();
           router.push("/book-an-appointment");
@@ -116,7 +116,7 @@ const Appointment = () => {
 
             {/* Service Selection */}
             <div className="w-full">
-              <label for="service" className="sr-only">
+              <label htmlFor="service" className="sr-only">
                 Choose a Service
               </label>
               <select

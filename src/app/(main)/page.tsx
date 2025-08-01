@@ -81,4 +81,3 @@ export default function Home() {
     </main>
   );
 }
-// 2xl:-bottom-[150px] xl:-bottom-[150px] -bottom-[450px]

@@ -10,15 +10,10 @@ import React, { useRef, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination } from 'swiper/modules';
 import 'swiper/css';
-import dynamic from 'next/dynamic';
 import { QuoteIcon } from 'lucide-react';
 import ParticlesComponent from './ParticaleComponent';
 import { Swiper as SwiperClass } from 'swiper/types';
 
-// const ParticlesComponent = dynamic(() => import('@/Animations/Particles'), {
-//     ssr: false,        // Must be false for client-only libs
-//     loading: () => null // Optional: can use a spinner or div here
-// });
 
 
 const ReviewSwiper = () => {
@@ -93,7 +88,7 @@ const ReviewSwiper = () => {
     }
 
     return (
-        <div className='max-w-[1150px] w-full mx-auto relative'>
+        <div className='max-w-[1150px] !w-full mx-auto relative pb-16'>
             <Swiper
                 ref={swiperRef}
                 pagination={{
@@ -111,41 +106,52 @@ const ReviewSwiper = () => {
                         spaceBetween: 10,
                     },
                     640: {
-                        slidesPerView: 'auto',
+                        slidesPerView: 1,
                         spaceBetween: 20,
                     },
-                    
+                    768: {
+                        slidesPerView: 1,
+                        spaceBetween: 20,
+                    },
+                    1024: {
+                        slidesPerView: 1,
+                        spaceBetween: 20,
+                    },
+                    1280: {
+                        slidesPerView: 'auto',
+                        spaceBetween: 20,
+                    }
                 }}
                 modules={[Pagination]}
                 onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
-                className="mySwiper !overflow-hidden !h-[550px] relative">
+                className="mySwiper review-items !overflow-hidden">
 
                 <SwiperSlide className="w-full xl:!w-[570px] h-[420px]">
-                    <div className="h-full w-full w-full overflow-hidden">
+                    <div className="h-full">
                         <BigSlide image={cs1.src} name={<>Jane Smith</>} title={<>Manager</>} review={<>I just want to share a good quick note and let you know that you guys do a really good job</>} />
                         <MobileSlide image={cs1.src} name={<>Jane Smith</>} title={<>Manager</>} review={<>I just want to share a good quick note and let you know that you guys do a really good job</>} />
                     </div>
                 </SwiperSlide>
                 <SwiperSlide className="w-full xl:!w-[270px] h-[420px]">
-                    <div className="h-full w-full overflow-hidden">
+                    <div className="h-full">
                         <SmallSlide image={cs4.src} name={<>Albert M. Doyle</>} title={<>CEO</>} review={<>You made it so simple.My new site is so much faster and easier work to with than my old.</>} />
                         <MobileSlide image={cs2.src} name={<>Albert M. Doyle</>} title={<>CEO</>} review={<>You made it so simple.My new site is so much faster and easier work to with than my old.</>} />
                     </div>
                 </SwiperSlide>
                 <SwiperSlide className="w-full xl:!w-[270px] h-[420px]">
-                    <div className="h-full w-full overflow-hidden">
+                    <div className="h-full">
                         <SmallSlide image={cs2.src} name={<>Jacob B. Ginley</>} title={<>Manager</>} review={<>High-quality janitorial leads that actually convert—saved us tons of time.</>} />
                         <MobileSlide image={cs3.src} name={<>Jacob B. Ginley</>} title={<>Manager</>} review={<>High-quality janitorial leads that actually convert—saved us tons of time.</>} />
                     </div>
                 </SwiperSlide>
                 <SwiperSlide className="w-full xl:!w-[570px] h-[420px]">
-                    <div className="h-full w-full overflow-hidden">
+                    <div className="h-full">
                         <BigSlide image={cs3.src} name={<>Devon Carter</>} title={<>Cleaning Business Owner</>} review={<>Great service! We closed three deals in the first week.</>} />
                         <MobileSlide image={cs4.src} name={<>Devon Carter</>} title={<>Cleaning Business Owner</>} review={<>Great service! We closed three deals in the first week.</>} />
                     </div>
                 </SwiperSlide>
                 <SwiperSlide className="w-full xl:!w-[270px] h-[420px]">
-                    <div className="h-full w-full overflow-hidden">
+                    <div className="h-full">
                         <SmallSlide image={cs5.src} name={<>Angela Ramirez</>} title={<>Sales Director</>} review={<>Reliable appointments every week—no fluff, just results.</>} />
                         <MobileSlide image={cs5.src} name={<>Angela Ramirez</>} title={<>Sales Director</>} review={<>Reliable appointments every week—no fluff, just results.</>} />
                     </div>
@@ -191,12 +197,11 @@ const ReviewSwiper = () => {
 
 const UserReview = () => {
     return (
-        <div className="relative h-full w-full flex flex-col">
+        <div className="relative min-h-[420px] flex flex-col">
             {/* Background */}
             <ParticlesComponent id="particles" />
-
             {/* Swiper Reviews */}
-            <div className="max-w-[1150px] mx-auto w-full absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-50">
+            <div className="w-fit absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-50">
                 <div className="space-y-5 mb-10">
                     <p className="text-white text-lg font-medium text-center">Testimonial</p>
                     <h3 className="text-white text-2xl font-bold text-center">What People Say About <br />Our Service</h3>

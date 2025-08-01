@@ -1,6 +1,6 @@
 'use client'
 import Particles, { initParticlesEngine } from "@tsparticles/react";
-import type { ISourceOptions, Engine, Container } from "@tsparticles/engine";
+import type { ISourceOptions, Container } from "@tsparticles/engine";
 import { useEffect, useMemo, useState } from "react";
 import { loadSlim } from "@tsparticles/slim";
 
@@ -100,7 +100,6 @@ const ParticlesComponent = ({ id }: ParticlesComponentProps) => {
     return (
         <Particles
             id={id}
-            init={particlesLoaded}
             options={options}
             className="!z-30"
             style={{

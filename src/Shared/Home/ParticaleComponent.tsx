@@ -1,22 +1,24 @@
 'use client';
-import Particles from "@tsparticles/react";
+import Particles, { initParticlesEngine } from "@tsparticles/react";
 import type { ISourceOptions } from "@tsparticles/engine";
-import { useMemo } from "react";
+import { useEffect, useMemo, useState } from "react";
+import { loadSlim } from "@tsparticles/slim"
 
 interface ParticlesComponentProps {
     id: string;
 }
 
 const ParticlesComponent = ({ id }: ParticlesComponentProps) => {
-    // const [init, setInit] = useState(false);
+    const [init, setInit] = useState(false);
+    console.log(init);
 
-    // useEffect(() => {
-    //     initParticlesEngine(async (engine) => {
-    //         await loadSlim(engine);
-    //     }).then(() => {
-    //         setInit(true);
-    //     });
-    // }, []);
+    useEffect(() => {
+        initParticlesEngine(async (engine) => {
+            await loadSlim(engine);
+        }).then(() => {
+            setInit(true);
+        });
+    }, []);
 
     const options: ISourceOptions = useMemo(
         () => ({

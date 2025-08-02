@@ -34,7 +34,7 @@ export default function Home() {
               details={<>World Class <br />Janitorial Lead <br /> Generator</>}
             />
             <p className="text-base text-[#777] font-light mt-7">Our agents are fully bilingual, bi-cultural, well educated <br /> and have expertise in a wide array of business functions <br /> such as Debt Collection, Customer Service.</p>
-            <div className="mt-6 2xl:w-[75%] xl:w-[75%] w-full">
+            <div className="mt-6 2xl:w-[75%] xl:w-[75%] w-full space-y-6">
               {/* Progress Type (Customer Service) */}
               <ProgressDemo service="Customer Service" progressValue={85} bgColor="bg-[#FF00D3]" />
               <ProgressDemo service="Sales / Lead Generation" progressValue={90} bgColor="bg-primary" />

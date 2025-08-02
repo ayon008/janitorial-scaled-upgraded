@@ -31,7 +31,7 @@ export function ProgressDemo({ service, progressValue, bgColor }: { service: str
 
             requestAnimationFrame(animate)
         }
-    }, [isInView, motionValue])
+    }, [isInView, motionValue, progressValue])
 
     // Sync motionValue to React state
     useEffect(() => {

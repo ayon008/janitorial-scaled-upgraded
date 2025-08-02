@@ -8,7 +8,7 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { Menu } from "lucide-react";
-import { Logo } from "./Navbar";
+import { Logo, NavItem } from "./Navbar";
 import {
   Accordion,
   AccordionContent,
@@ -20,11 +20,7 @@ import Link from "next/link";
 const NavMobile = ({
   NavItems,
 }: {
-  NavItems: {
-    name: string;
-    href: string;
-    children?: { name: string; href: string }[];
-  }[];
+  NavItems: NavItem[];
 }) => {
   return (
     <div className="lg:hidden block">
@@ -44,15 +40,15 @@ const NavMobile = ({
                   return (
                     <AccordionItem key={i} value={`item-${i + 1}`}>
                       <AccordionTrigger>{nav.name}</AccordionTrigger>
-                      {nav.children && (
+                      {"children" in nav && (
                         <AccordionContent className="flex flex-col">
-                          {nav.children.map((n, i) => {
-                            return (
+                          {nav.children.map((n, i) => (
+                            "href" in n ? (
                               <Link key={i} href={n.href}>
                                 {n.name}
                               </Link>
-                            );
-                          })}
+                            ) : null
+                          ))}
                         </AccordionContent>
                       )}
                       {/* <AccordionContent>

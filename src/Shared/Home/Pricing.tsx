@@ -1,11 +1,6 @@
-import { Check } from 'lucide-react';
 import Link from 'next/link';
 import TickCircle from '../icons/TickIcon';
-import { Button } from '@/components/ui/button';
 import ButtonPrimary from '../Buttons/PrimaryButton';
-// import TickCircle from './TickCircle';
-// import PaymentLink from './PaymentLink';
-// import ButtonPrimary from '../Shared/Buttons/ButtonPrimary';
 
 const pricingPlans = [
     {

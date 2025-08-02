@@ -20,12 +20,12 @@ import Title from "../Title/Title";
 
 const People = ({ image, name, position }: { image: string, name: string, position: string }) => {
     return (
-        <div className="2xl:w-full 2xl:h-full xl:w-full xl:h-full max-w-[520px] mx-auto transition-all duration-300 ease-in-out people">
+        <div className="2xl:w-full 2xl:h-full xl:w-full xl:h-full max-w-[520px] mx-auto transition-all duration-300 ease-in-out people group">
             <div className="relative overflow-hidden h-fit">
                 <Image loading="lazy" src={image} height={370} width={270} alt="our team members" className="2xl:w-[270px] 2xl:h-[370px] xl:w-[270px] xl:h-[370px] w-full mx-auto h-auto z-10" />
                 <div className="bg-[#27205F4D] inset-0 bottom-0 left-0 right-0 absolute transition-all duration-300 ease-in-out z-20 opacity-0 team-image"></div>
             </div>
-            <div className="p-6">
+            <div className="p-6 text-center">
                 <h3 className="font-semibold text-xl">{name}</h3>
                 <p className="text-[#777] font-light text-base mt-3">{position}</p>
             </div>
@@ -39,6 +39,7 @@ export default function Team() {
         <div className="max-w-[1150px] mx-auto w-full">
             <DownAnimation>
                 <Title
+                    className={`text-center`}
                     head={<>Our team</>}
                     details={<>Our Best Specialists <br />
                         Work For You</>}

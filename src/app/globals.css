@@ -187,6 +187,9 @@ html {
   @apply text-white
 }
 
+.people:hover .team-image {
+  @apply opacity-100;
+}
 
 #particles {
   height: 890px !important;

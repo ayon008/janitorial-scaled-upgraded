@@ -1,6 +1,3 @@
-import { Progress } from "@/components/ui/progress";
-import { poppins } from "@/fonts/poppins";
-import UserReviewWrapper from "@/Shared/Animations/UserReviewWrapper";
 import Banner from "@/Shared/Banner/Banner";
 import ButtonSecondary from "@/Shared/Buttons/SecondaryButton";
 import Appointment from "@/Shared/Forms/Appoientment";
@@ -72,7 +69,7 @@ export default function Home() {
       <section>
         <Pricing />
       </section>
-      <section>
+      <section className="my-16">
         <Team />
       </section>
     </main>

@@ -58,7 +58,11 @@ const Leads = [
   { name: "Lay Ups", href: "/qualified-cleaning-leads" },
 ];
 
-const NavItems = [
+export type NavItem =
+  | { name: string; href: string }
+  | { name: string; children: NavItem[] };
+
+const NavItems: NavItem[] = [
   { name: "Home", href: "/" },
   { name: "About", href: "/about-janitorial-services" },
   { name: "Blogs", href: "/janitorial-cleaning-blogs" },
@@ -114,7 +118,7 @@ const Navbar = () => {
                 className={`text-base font-light hover:text-red-500 text-white transition-all duration-100 ${pathname === "/" ? "text-red-500" : ""
                   }`}
               >
-                {nav?.href ? (
+                {"href" in nav ? (
                   <Link href={`${nav.href}`} className="font-medium">
                     {nav.name}
                   </Link>
@@ -132,7 +136,9 @@ const Navbar = () => {
                           key={i}
                           className="border-b-[0.60px] border-opacity-30 border-b-gray relative last:border-b-0"
                         >
-                          <Option href={s.href}>{s.name}</Option>
+                          {("href" in s) && (
+                            <Option href={s.href}>{s.name}</Option>
+                          )}
                         </li>
                       ))}
                     </ul>

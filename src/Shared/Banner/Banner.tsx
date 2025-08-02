@@ -19,7 +19,6 @@ const Banner = () => {
   const HeroBannerContent = ({
     heading,
     paragraph,
-    buttonLabel,
     positionClasses = "absolute md:left-0 md:-translate-x-0 -translate-x-1/2 left-1/2 top-1/2 -translate-y-1/2 w-full 2xl:p-0 xl:p-0 md:pl-16 p-4 z-[60]",
     headingClasses = "text-white 2xl:text-5xl xl:text-5xl text-3xl font-semibold md:text-left text-center",
     paragraphClasses = "text-white 2xl:text-lg xl:text-lg text-base md:text-left text-center",

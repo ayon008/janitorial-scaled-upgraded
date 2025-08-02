@@ -11,6 +11,7 @@ import { useRef, useState } from "react";
 import Link from "next/link";
 import ButtonSecondary from "../Buttons/SecondaryButton";
 import UpAnimation from "../Animations/UpAnimation";
+import 'swiper/css/effect-fade';
 
 const Banner = () => {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -26,14 +27,14 @@ const Banner = () => {
     return (
       <div className={positionClasses}>
         <div className="2xl:space-y-8 xl:space-y-8 space-y-6 max-w-[1150px] mx-auto">
-          <UpAnimation delay={0.8} key={activeIndex}>
+          <UpAnimation delay={0.8} animationKey={activeIndex}>
             <h1 className={headingClasses}>{heading}</h1>
           </UpAnimation>
-          <UpAnimation delay={1} key={activeIndex}>
+          <UpAnimation delay={1} animationKey={activeIndex}>
             <p className={paragraphClasses}>{paragraph}</p>
           </UpAnimation>
           <div className="w-fit md:mx-0 mx-auto">
-            <UpAnimation delay={1.2} key={activeIndex}>
+            <UpAnimation delay={1.2} animationKey={activeIndex}>
               <Link href={"#pricing"}>
                 <ButtonSecondary label="Request Pricing" />
               </Link>
@@ -67,7 +68,7 @@ const Banner = () => {
         fadeEffect={{ crossFade: true }} // Enable fade effect
         slidesPerView={1}
         modules={[Navigation, Autoplay, Pagination, EffectFade]}
-        className="mySwiper pointer-events-none swiper-fade"
+        className="mySwiper pointer-events-none"
         onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
       >
         <SwiperSlide>

@@ -1,4 +1,4 @@
-'use client'
+'use client';
 import Particles, { initParticlesEngine } from "@tsparticles/react";
 import type { ISourceOptions, Container } from "@tsparticles/engine";
 import { useEffect, useMemo, useState } from "react";
@@ -26,18 +26,19 @@ const ParticlesComponent = ({ id }: ParticlesComponentProps) => {
     const options: ISourceOptions = useMemo(
         () => ({
             fullScreen: {
-                enable: false, // 🔥 VERY IMPORTANT
+                enable: false,
             },
             background: {
                 color: {
                     value: "#876EFD",
                 },
             },
-            fpsLimit: 60,
+            fpsLimit: 120,
             interactivity: {
+                detectsOn: "canvas",
                 events: {
                     onClick: {
-                        enable: true,
+                        enable: false,
                         mode: "push",
                     },
                     onHover: {
@@ -46,11 +47,14 @@ const ParticlesComponent = ({ id }: ParticlesComponentProps) => {
                     },
                 },
                 modes: {
+                    grab: {
+                        distance: 250, // Increased grab distance
+                        links: {
+                            opacity: 0.9, // More visible lines
+                        },
+                    },
                     push: {
                         quantity: 4,
-                    },
-                    grab: {
-                        distance: 150,
                     },
                 },
             },
@@ -67,7 +71,7 @@ const ParticlesComponent = ({ id }: ParticlesComponentProps) => {
                 },
                 move: {
                     enable: true,
-                    speed: 1,
+                    speed: 0.5, // Slower for smooth movement
                     direction: "none",
                     random: false,
                     straight: false,
@@ -76,7 +80,7 @@ const ParticlesComponent = ({ id }: ParticlesComponentProps) => {
                     },
                 },
                 number: {
-                    value: 80,
+                    value: 200,
                     density: {
                         enable: true,
                         area: 800,
@@ -98,19 +102,22 @@ const ParticlesComponent = ({ id }: ParticlesComponentProps) => {
     );
 
     return (
-        <Particles
-            id={id}
-            options={options}
-            className="!z-30"
-            style={{
-                position: "absolute", // ✅ Crucial
-                top: 0,
-                left: 0,
-                width: "100%",
-                height: "100%",
-                zIndex: 0,
-            }}
-        />
+        <div style={{ position: "relative", width: "100%", height: "100%" }}>
+            <Particles
+                id={id}
+                options={options}
+                className="pointer-events-auto !z-30"
+                style={{
+                    position: "absolute",
+                    top: 0,
+                    left: 0,
+                    width: "100%",
+                    height: "100%",
+                    zIndex: 0,
+                    pointerEvents: "auto",
+                }}
+            />
+        </div>
     );
 };
 

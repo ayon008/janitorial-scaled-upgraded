@@ -197,7 +197,7 @@ const ReviewSwiper = () => {
 
 const UserReview = () => {
     return (
-        <div className="relative min-h-[420px] flex flex-col">
+        <div className="relative !h-[890px] flex flex-col !overflow-hidden">
             {/* Background */}
             <ParticlesComponent id="particles" />
             {/* Swiper Reviews */}

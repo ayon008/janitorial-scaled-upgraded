@@ -126,7 +126,7 @@ const Appointment = () => {
                 })}
                 className="select select-bordered rounded-none w-full bg-[#645CFF] py-3 book-appointment text-white"
               >
-                <option value="" disabled defaultValue={"Choose Type"} selected>
+                <option value="" disabled defaultValue={"Choose Type"}>
                   Choose Type
                 </option>
                 <option value="Janitorial Appointment">Janitorial Leads</option>

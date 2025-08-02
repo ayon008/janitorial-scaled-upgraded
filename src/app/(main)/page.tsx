@@ -4,8 +4,12 @@ import UserReviewWrapper from "@/Shared/Animations/UserReviewWrapper";
 import Banner from "@/Shared/Banner/Banner";
 import ButtonSecondary from "@/Shared/Buttons/SecondaryButton";
 import Appointment from "@/Shared/Forms/Appoientment";
+import Pricing from "@/Shared/Home/Pricing";
+import { ProgressDemo } from "@/Shared/Home/Progress";
+import UserReview from "@/Shared/Home/Review";
 import Services from "@/Shared/Home/Services";
 import Stepper from "@/Shared/Home/Stepper";
+import Team from "@/Shared/Home/Team";
 import ServiceImage from "@/Shared/Images/ServiceImage";
 import Title from "@/Shared/Title/Title";
 import Link from "next/link";
@@ -35,22 +39,8 @@ export default function Home() {
             <p className="text-base text-[#777] font-light mt-7">Our agents are fully bilingual, bi-cultural, well educated <br /> and have expertise in a wide array of business functions <br /> such as Debt Collection, Customer Service.</p>
             <div className="mt-6 2xl:w-[75%] xl:w-[75%] w-full">
               {/* Progress Type (Customer Service) */}
-              <div className="flex items-center justify-between mb-4">
-                <p className={`text-base font-light ${poppins.className}`}>Customer Service</p>
-                <p className={`text-base font-light ${poppins.className}`}>85%</p>
-              </div>
-              {/* Progress Bar Customer Service */}
-              <Progress value={85} indicatorClassName="bg-[#FF00D3]" />
-
-              {/* Progress Type (Lead Generation) */}
-              <div className="mt-6 flex items-center justify-between mb-4">
-                <p className={`text-base font-light ${poppins.className}`}>Sales / Lead Generation</p>
-                <p className={`text-base font-light ${poppins.className}`}>90%</p>
-              </div>
-
-              {/* Progress Bar Lead Generation */}
-              {/* <progress className="progress w-full progress-primary" value="90" max="100"></progress> */}
-              <Progress className="" value={90} />
+              <ProgressDemo service="Customer Service" progressValue={85} bgColor="bg-[#FF00D3]" />
+              <ProgressDemo service="Sales / Lead Generation" progressValue={90} bgColor="bg-primary" />
             </div>
             <div className="mt-12 w-[180px]">
               <Link href={'/about'}>
@@ -76,7 +66,14 @@ export default function Home() {
         <Services />
       </section>
       <section className="my-16">
-        <UserReviewWrapper />
+        {/* <UserReviewWrapper /> */}
+        <UserReview />
+      </section>
+      <section>
+        <Pricing />
+      </section>
+      <section>
+        <Team />
       </section>
     </main>
   );

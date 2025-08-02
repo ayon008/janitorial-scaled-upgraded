@@ -55,7 +55,7 @@ export default function Stepper() {
                 {
                     steps.map((step, i) => {
                         return (
-                            <div className="flex items-start gap-6 h-full">
+                            <div className="flex items-start gap-6 h-full" key={i}>
                                 <div className="relative h-full flex flex-col items-center">
                                     {/* Step Number in circle */}
                                     <div className={`w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center z-20 hover:scale-110 duration-300 transition-all ${poppins.className}`}>
